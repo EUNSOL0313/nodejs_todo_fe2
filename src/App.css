@@ -52,3 +52,7 @@ body {
    background-color: gainsboro;
    color: white;
 }
+
+.red-error {
+   color: red;
+}
