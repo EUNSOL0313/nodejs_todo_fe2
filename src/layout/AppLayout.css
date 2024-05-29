@@ -1,0 +1,23 @@
+.user-info {
+   margin-top: 20px !important;
+   display: flex;
+   justify-content: flex-end;
+}
+
+.user-info div {
+   margin-right: 10px;
+}
+.user-name {
+   padding-top: 15px;
+}
+
+.button-logout {
+   background-color: white;
+   border: 2px solid lightblue;
+   color: lightblue;
+   margin: 10px;
+}
+.button-logout:hover {
+   background-color: lightblue;
+   color: #ffffff;
+}

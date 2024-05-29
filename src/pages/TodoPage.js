@@ -9,13 +9,17 @@ const TodoPage = () => {
    const [todoList, setTodoList] = useState([])
    const [todoValue, setTodoValue] = useState('')
 
+   //할일 가져오기 함수
    const getTasks = async () => {
       const response = await api.get('/tasks')
+      console.log('taskList', response.data.data)
       setTodoList(response.data.data)
    }
    useEffect(() => {
       getTasks()
    }, [])
+
+   //할일 추가 함수
    const addTodo = async () => {
       try {
          const response = await api.post('/tasks', {
@@ -31,6 +35,7 @@ const TodoPage = () => {
       }
    }
 
+   //할일 삭제 함수
    const deleteItem = async (id) => {
       try {
          console.log(id)

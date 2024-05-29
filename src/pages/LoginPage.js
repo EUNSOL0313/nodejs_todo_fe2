@@ -5,13 +5,11 @@ import Form from 'react-bootstrap/Form'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import api from '../utils/api'
 
-const LoginPage = () => {
+const LoginPage = ({ user, setUser }) => {
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [error, setError] = useState('')
-   const [user, setUser] = useState(null)
-
-   const navigate = useNavigate()
+   const navigate = useNavigate('')
 
    const handleLogin = async (event) => {
       event.preventDefault()
@@ -23,6 +21,7 @@ const LoginPage = () => {
 
             //SessionStorage : 창 껐다 키면 정보 사라짐
             sessionStorage.setItem('token', response.data.token)
+
             //token값은 header에 넣어줌 규칙=='Bearer '+ response~
             api.defaults.headers['authorization'] = 'Bearer ' + response.data.token
             setError('')
@@ -32,6 +31,9 @@ const LoginPage = () => {
       } catch (error) {
          setError(error.message)
       }
+   }
+   if (user) {
+      return <Navigate to="/" />
    }
    if (user) {
       return <Navigate to="/" />
